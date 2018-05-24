@@ -24,10 +24,10 @@ function checkrow(i, number){
 var rownumber = Math.floor(i/9);
 var k = rownumber *9;
 var check =  false;
-for (var l = k; l < rownumber + 9; l++)
+for (var l = k; l < k + 9; l++)
 {
-    if (number == table[l] && table[l] != 0){
-    
+    if (number == table[l] && table[l] != 0)
+    {
         check = true
         return check;
     }
@@ -58,23 +58,27 @@ var column = Math.floor(i/9);
 
 i = i - (row %3);
 i = i - (column % 3)*9;
+// console.log("the sqaure number is "+i);
 var k = i;
 for (var l = k; l < k+3   ;l++){
-    if (number == table[l] && table[l] != 0)
+    if (number == table[l] && table[l] != 0){
     check = true
     return check;
+    }
 }
 
 for ( l = k +9; l < k+12; l++){
-    if (number == table[l] && table[l] != 0)
+    if (number == table[l] && table[l] != 0){
     check = true
     return check;
+    }
 }
 
 for ( l = k+18; l < k+21; l++){
-    if (number == table[l]&& table[l] != 0)
+    if (number == table[l]&& table[l] != 0){
     check = true
     return check;
+    }
 }
 
 return check;
@@ -86,57 +90,74 @@ export function solving(){
     var position = [];
     var valueini = [];
     var i = 0;
+    var checker = false;
 
-    
+
     while ( i < 81){
-        console.log(i);
-        console.log(value);
-        console.log(checkrow(i,value));
-        console.log(checkcolumn(i,value));
-        console.log(checksquare(i,value));
+        checker = false;
+      
+        console.log("the position " + i);
+        console.log("the current valute is "+ value);
+        console.log("check row "+checkrow(i,value));
+        console.log("check column " + checkcolumn(i,value));
+        console.log("check square " +checksquare(i,value));
         
     
     if (table[i] == 0){
     if ((checkrow(i,value) == false) && (checkcolumn(i,value) == false) && (checksquare(i, value)== false) && (value < 10))
     {
-    
-            console.log('hello');
-            console.log(i);
-            // document.getElementById(i).value = value;
+        // window.setTimeout(function() {
+        // console.log(table);
+            // console.log('ENTERED');
+            document.getElementById(i).value = value;
             table[i]= value;
-            position.push[i];
+            position.push(i);
+            // console.log(position);
             valueini.push(value);
+            // console.log(valueini);
             value = 0;
             i = i+1;
+            // console.log(table);
             
-           
+        // }, 1000);
      
     
     }
     if (value > 8){
-            //document.getElementById(i).value = 0;
-              table[i]= 0;
+            //   document.getElementById(i).value = 0;
+            //   console.log(position);
+            //   console.log(valueini);
+              
               i = position.pop();
               value = valueini.pop();
-              console.log('hello1');
+              table[i]= 0;
+              
+            //   console.log(i);
+            //   console.log(value);
+            //   console.log('hello1');
               
              
     }
     }
-    if (table[i] != 0) {
-              i = i+1;
-              console.log('hello2');
+    else {  
+              
+                 i = i+1;
+               checker = true;
+            //   console.log('hello2');
               
               
               
     }
-              value = value + 1;
-              console.log(table);
-              console.log('hello3');
+            if(checker == false){
+             value = value + 1;
+            }
+
+            //   console.log('hello3');
              
              
              
     }
+
     }
 
 

@@ -92,6 +92,9 @@ input {
    font-weight: bold;
   
   }
+  .red{
+    color: red;
+  }
   
   #time {
   text-align: center;
