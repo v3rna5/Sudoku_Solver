@@ -94,6 +94,7 @@ export function solving(){
 
 
     while ( i < 81){
+        
         checker = false;
       
         console.log("the position " + i);
@@ -106,22 +107,20 @@ export function solving(){
     if (table[i] == 0){
     if ((checkrow(i,value) == false) && (checkcolumn(i,value) == false) && (checksquare(i, value)== false) && (value < 10))
     {
-        // window.setTimeout(function() {
-        // console.log(table);
-            // console.log('ENTERED');
-            document.getElementById(i).value = value;
-            table[i]= value;
-            position.push(i);
-            // console.log(position);
-            valueini.push(value);
-            // console.log(valueini);
-            value = 0;
-            i = i+1;
-            // console.log(table);
-            
-        // }, 1000);
-     
-    
+       // window.setTimeout(function() {
+           document.getElementById(i).value = value;
+           table[i]= value;
+           position.push(i);
+           valueini.push(value);
+           value = 0;
+           i = i+1;
+           // console.log(table);
+        // console.log(position);
+        // console.log(valueini);
+        // console.log(table);  
+        // console.log('ENTERED');
+        
+        // }, 2000);  
     }
     if (value > 8){
             //   document.getElementById(i).value = 0;
@@ -155,7 +154,7 @@ export function solving(){
             //   console.log('hello3');
              
              
-             
+       
     }
 
     }
