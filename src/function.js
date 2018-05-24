@@ -82,49 +82,59 @@ return check;
 
 export function solving(){
 
-    var value = 8;
+    var value = 1;
     var position = [];
     var valueini = [];
-    var i = 2;
-    console.log(checkrow(i,value));
-    console.log(checkcolumn(i,value));
-    console.log(checksquare(i,value));
+    var i = 0;
+
     
     while ( i < 81){
+        console.log(i);
+        console.log(value);
+        console.log(checkrow(i,value));
+        console.log(checkcolumn(i,value));
+        console.log(checksquare(i,value));
+        
     
     if (table[i] == 0){
-
-
     if ((checkrow(i,value) == false) && (checkcolumn(i,value) == false) && (checksquare(i, value)== false) && (value < 10))
     {
-            
-            console.log("Hello");
-            document.getElementById(i).value = value;
+    
+            console.log('hello');
+            console.log(i);
+            // document.getElementById(i).value = value;
             table[i]= value;
             position.push[i];
             valueini.push(value);
             value = 0;
             i = i+1;
+            
            
      
     
     }
-    else if (value > 8){
+    if (value > 8){
             //document.getElementById(i).value = 0;
               table[i]= 0;
               i = position.pop();
               value = valueini.pop();
-             
+              console.log('hello1');
+              
              
     }
-    }else {
+    }
+    if (table[i] != 0) {
               i = i+1;
+              console.log('hello2');
+              
+              
               
     }
-    
-              value = value +1;
+              value = value + 1;
               console.log(table);
-              
+              console.log('hello3');
+             
+             
              
     }
     }
